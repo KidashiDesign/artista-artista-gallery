@@ -1,19 +1,10 @@
-const artworks = [
-  { title: "Fragmented Light", artist: "Mira Solen", hue: "#d9a441" },
-  { title: "Silent Horizon", artist: "Kenji Aoto", hue: "#7c9885" },
-  { title: "Woven Static", artist: "Ada Row", hue: "#b3564a" },
-  { title: "Interior Weather", artist: "Yusuf Karam", hue: "#5b7fb5" },
-  { title: "Rift", artist: "Elin Voss", hue: "#a06bb5" },
-  { title: "Slow Bloom", artist: "Nadia Efe", hue: "#c98f4e" },
-];
-
 function renderGallery() {
   const grid = document.getElementById("galleryGrid");
   grid.innerHTML = artworks
     .map(
       (art) => `
       <div class="artwork-card">
-        <div class="artwork-image" style="background: linear-gradient(160deg, ${art.hue}, #0f0f10);"></div>
+        <div class="artwork-image" style="background-image: url('${art.image}');"></div>
         <div class="artwork-info">
           <h3>${art.title}</h3>
           <p>${art.artist}</p>

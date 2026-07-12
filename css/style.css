@@ -131,6 +131,8 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
 .artwork-image {
   aspect-ratio: 4 / 5;
   width: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .artwork-info { padding: 1rem 1.25rem; }
