@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artista — Contemporary Art Gallery</title>
+<meta name="description" content="Artista is a contemporary art gallery showcasing emerging and established artists.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo">ARTISTA</a>
+    <ul class="nav-links">
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Contemporary Art, Curated.</h1>
+  <p>A gallery for emerging and established artists exploring form, color, and space.</p>
+  <a href="#gallery" class="btn">Explore the Gallery</a>
+</section>
+
+<main>
+  <section id="gallery" class="gallery-section">
+    <h2>Featured Works</h2>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <section id="about" class="about-section">
+    <h2>About Artista</h2>
+    <p>Artista is a curated space for contemporary art. We collaborate with painters, sculptors, and digital artists to bring bold, original work to a wider audience — online and in our physical showroom.</p>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Get in Touch</h2>
+    <form class="contact-form" id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <p class="form-note" id="formNote"></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Artista Gallery. All rights reserved.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
