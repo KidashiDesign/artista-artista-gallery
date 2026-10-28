@@ -245,21 +245,6 @@ const artworks = [
     "title": "Nicole — 06"
   },
   {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-10.webp",
-    "title": "Nicole — 10"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-12.webp",
-    "title": "Nicole — 12"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-13.webp",
-    "title": "Nicole — 13"
-  },
-  {
     "artist": "Saba",
     "image": "Saba-Compressed/Saba-01.webp",
     "title": "Saba — 01"
