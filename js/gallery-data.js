@@ -343,55 +343,6 @@ const artworks = [
     "title": "Nicole — 06"
   },
   {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-07.webp",
-    "width": 1600,
-    "height": 1067,
-    "title": "Nicole — 07"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-08.webp",
-    "width": 1067,
-    "height": 1600,
-    "title": "Nicole — 08"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-09.webp",
-    "width": 1600,
-    "height": 1067,
-    "title": "Nicole — 09"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-10.webp",
-    "width": 1067,
-    "height": 1600,
-    "title": "Nicole — 10"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-11.webp",
-    "width": 1067,
-    "height": 1600,
-    "title": "Nicole — 11"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-12.webp",
-    "width": 1600,
-    "height": 1067,
-    "title": "Nicole — 12"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-13.webp",
-    "width": 1600,
-    "height": 1067,
-    "title": "Nicole — 13"
-  },
-  {
     "artist": "Saba",
     "image": "Saba-Compressed/Saba-01.webp",
     "width": 1131,
