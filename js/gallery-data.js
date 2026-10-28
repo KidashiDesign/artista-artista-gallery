@@ -246,28 +246,8 @@ const artworks = [
   },
   {
     "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-07.webp",
-    "title": "Nicole — 07"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-08.webp",
-    "title": "Nicole — 08"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-09.webp",
-    "title": "Nicole — 09"
-  },
-  {
-    "artist": "Nicole",
     "image": "Nicole-Compressed/Berlin/Nicole-10.webp",
     "title": "Nicole — 10"
-  },
-  {
-    "artist": "Nicole",
-    "image": "Nicole-Compressed/Berlin/Nicole-11.webp",
-    "title": "Nicole — 11"
   },
   {
     "artist": "Nicole",
