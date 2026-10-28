@@ -7,6 +7,7 @@
   --grid-line: #262626;
   --radius: 6px;
   --max-width: 1120px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -158,6 +159,39 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
 
 .artwork-info p { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
 
+/* Spotlight: one artwork sharp and zoomed, all others softly blurred and dimmed */
+.gallery-grid.spotlight .artwork-card {
+  --zoom: 1.1;
+  position: relative;
+  filter: blur(6px) brightness(0.55) saturate(0.7);
+  transform: scale(0.98);
+  transition:
+    transform 0.8s var(--ease),
+    filter 0.8s var(--ease),
+    box-shadow 0.8s var(--ease);
+}
+
+.gallery-grid.spotlight .artwork-card.is-feature { --zoom: 1.05; }
+
+.gallery-grid.spotlight .artwork-card.is-active {
+  z-index: 2;
+  filter: blur(0) brightness(1) saturate(1);
+  transform: scale(var(--zoom));
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 720px) {
+  .gallery-grid.spotlight .artwork-card { --zoom: 1.04; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-grid.spotlight .artwork-card {
+    --zoom: 1;
+    transform: none;
+    transition: filter 0.3s ease;
+  }
+}
+
 @media (min-width: 721px) {
   .gallery-grid {
     --cols: 4;
@@ -193,7 +227,8 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
     transition: opacity 0.25s ease;
   }
   .artwork-card:hover .artwork-info,
-  .artwork-card:focus-within .artwork-info { opacity: 1; }
+  .artwork-card:focus-within .artwork-info,
+  .gallery-grid.spotlight .artwork-card.is-active .artwork-info { opacity: 1; }
 }
 
 .about-section p {

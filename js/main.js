@@ -59,6 +59,82 @@ function renderGallery() {
     .join("");
 }
 
+// Spotlight: only one artwork is sharp and zoomed at a time. Scrolling walks
+// through the artworks one after another in reading order (row by row); a moving
+// mouse pointer takes over and highlights the artwork it is resting on.
+function setupSpotlight() {
+  const grid = document.getElementById("galleryGrid");
+  const cards = Array.from(grid.children);
+  if (!cards.length) return;
+  grid.classList.add("spotlight");
+
+  let triggers = [];
+  let active = -1;
+  let mode = "scroll";
+  let queued = false;
+
+  const docTop = (el) => {
+    let y = 0;
+    for (; el; el = el.offsetParent) y += el.offsetTop;
+    return y;
+  };
+
+  // Each artwork gets an anchor position: its vertical centre, pushed down where
+  // needed so artworks sharing a row still take turns instead of switching all
+  // at once. The artwork whose position is closest to the screen centre is active.
+  function measure() {
+    const step = Math.min(Math.max(window.innerHeight * 0.1, 60), 140);
+    let prev = -Infinity;
+    triggers = cards.map((card) => {
+      prev = Math.max(docTop(card) + card.offsetHeight / 2, prev + step);
+      return prev;
+    });
+  }
+
+  function setActive(i) {
+    if (i === active) return;
+    if (active >= 0) cards[active].classList.remove("is-active");
+    cards[i].classList.add("is-active");
+    active = i;
+  }
+
+  function update() {
+    queued = false;
+    if (mode !== "scroll") return;
+    const anchor = window.scrollY + window.innerHeight / 2;
+    let i = 0;
+    while (i + 1 < triggers.length && anchor - triggers[i] > triggers[i + 1] - anchor) i++;
+    setActive(i);
+  }
+
+  function request() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener("scroll", () => { mode = "scroll"; request(); }, { passive: true });
+  window.addEventListener("resize", () => { measure(); request(); });
+  window.addEventListener("load", () => { measure(); request(); });
+
+  // Browsers fire a synthetic pointermove after scrolling; those repeat the
+  // previous coordinates and must not hand control back to the pointer.
+  let lastX = null, lastY = null;
+  document.addEventListener("pointermove", (e) => {
+    const moved = e.clientX !== lastX || e.clientY !== lastY;
+    lastX = e.clientX;
+    lastY = e.clientY;
+    if (!moved || e.pointerType === "touch") return;
+    const card = e.target.closest && e.target.closest(".artwork-card");
+    if (!card) return;
+    mode = "pointer";
+    setActive(cards.indexOf(card));
+  }, { passive: true });
+
+  measure();
+  update();
+}
+
 function setupNav() {
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
@@ -80,5 +156,6 @@ function setupContactForm() {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 renderGallery();
+setupSpotlight();
 setupNav();
 setupContactForm();
